@@ -1,5 +1,5 @@
-import type { Config } from "tailwindcss";
-import {colors, colorsType, fontSize, fontSizeType} from "./styles";
+// import type { Config } from "tailwindcss";
+import {color, colorsType, fontSize, fontSizeType} from "./styles";
 
 const config: {
   plugins: any[];
@@ -16,7 +16,7 @@ const config: {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    colors: colors,
+    colors: color,
     fontSize: fontSize,
     extend: {
       backgroundImage: {
