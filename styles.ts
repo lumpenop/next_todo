@@ -1,9 +1,11 @@
+import {DefaultColors} from "tailwindcss/types/generated/colors";
+import {CSSProperties} from "react";
 
 export type fontSizeType = {
-  [index: string]: (string | {[index: string]: string})[] | fontSizeType;
+  [index: string]: (string | {[index: keyof CSSProperties]: string})[] | fontSizeType;
 }
 
-let fontSize : {
+let fontSize: fontSizeType = {
   '16': {
     'bold': ['16px', {
       fontWeight: '800'
@@ -21,9 +23,11 @@ let fontSize : {
 }
 
 export type colorsType = {
-  [index: string]: string | {[index: string]: string}
+  [index:  keyof DefaultColors]: string | {[index: keyof DefaultColors]: string}
 }
-export let colors:
+
+
+export let color:
   colorsType
  =  {
   'slate': {
