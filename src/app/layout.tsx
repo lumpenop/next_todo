@@ -2,8 +2,9 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 import localFont from 'next/font/local'
+import Gnb from "~/app/components/gnb";
 
-const NanumSquare = localFont({ src: [{path: 'fonts/NanumSquareR.ttf', weight: '700'}] })
+const NanumSquare = localFont({ src: [{path: 'fonts/NanumSquareR.ttf', weight: '400'}] })
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -17,7 +18,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${NanumSquare.className}`}>{children}</body>
+      <body className={`${NanumSquare.className}`}>
+        <Gnb />
+        {children}
+      </body>
     </html>
   );
 }

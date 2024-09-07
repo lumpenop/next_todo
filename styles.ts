@@ -1,17 +1,15 @@
-import {DefaultColors} from "tailwindcss/types/generated/colors";
-import {CSSProperties} from "react";
 
 export type fontSizeType = {
-  [index: string]: (string | {[index: keyof CSSProperties]: string})[] | fontSizeType;
+  [index: string]: (string | {[index: string]: string})[] | fontSizeType;
 }
 
 let fontSize: fontSizeType = {
   '16': {
     'bold': ['16px', {
-      fontWeight: '800'
+      fontWeight: '600'
     }],
     'xbold': ['16px', {
-      fontWeight: '900'
+      fontWeight: '800'
     }],
   },
   '18': ['18px', {
@@ -22,8 +20,11 @@ let fontSize: fontSizeType = {
   }]
 }
 
+
+export type colorRangeType = '100' | '200' | '300' | '400' | '500' | '600' | '700' | '800' | '900'
+export type colorPicks = Pick<DefaultColors, 'slate'|'violet'|'rose'|'lime'|'amber'|'green'>
 export type colorsType = {
-  [index:  keyof DefaultColors]: string | {[index: keyof DefaultColors]: string}
+  [index:  keyof colorPicks]: {[index: colorRangeType]: string}
 }
 
 
@@ -50,8 +51,13 @@ export let color:
     '300': '#BEF264'
   },
   'amber': {
+    '300': '#FCD34D',
     '800': '#92400E'
+  },
+  'green': {
+    '700': '#15803D'
   }
 }
+
 
 export {fontSize}
