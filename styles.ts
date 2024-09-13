@@ -1,3 +1,4 @@
+import {DefaultColors} from "tailwindcss/types/generated/colors";
 
 export type fontSizeType = {
   [index: string]: (string | {[index: string]: string})[] | fontSizeType;
@@ -21,11 +22,11 @@ let fontSize: fontSizeType = {
 }
 
 
-export type colorRangeType = '100' | '200' | '300' | '400' | '500' | '600' | '700' | '800' | '900'
+
 export type colorPicks = Pick<DefaultColors, 'slate'|'violet'|'rose'|'lime'|'amber'|'green'>
 export type colorsType = {
-  [index:  keyof colorPicks]: {[index: colorRangeType]: string}
-}
+  [index in keyof colorPicks]: { [index: string]: string; };
+};
 
 
 export let color:

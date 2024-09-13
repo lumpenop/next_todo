@@ -1,6 +1,6 @@
-'use client'
 
-import React, {useState} from 'react';
+
+import React from 'react';
 import RoundedShadow from "~/app/components/rounded-shadow";
 
 
@@ -10,6 +10,8 @@ interface Props {
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
   text: string
 }
+
+
 const Search = ({bgColor, onChange, text}: Props) => {
   return (
     <RoundedShadow bgColor={bgColor}>

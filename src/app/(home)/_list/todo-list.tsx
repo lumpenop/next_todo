@@ -18,7 +18,7 @@ const TodoList = ({doneList,doList,setDoneList,setDoList, isLoading}: Props) => 
         "Content-Type": "application/json",
       },
       method: 'PATCH',
-      body: JSON.stringify({ name: item.name, isCompleted: true, imageUrl: '', memo: ''}),
+      body: JSON.stringify({ name: item.name, isCompleted: !item.isCompleted, imageUrl: '', memo: ''}),
     })
     return response.json()
   }
