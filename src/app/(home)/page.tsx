@@ -1,26 +1,49 @@
 'use client'
-import SearchSection from "~/app/(home)/search/search-section";
-import ListSection from "~/app/(home)/list/list-section";
-import {useState} from "react";
+import SearchSection from "~/app/(home)/_search/search-section";
+import ListSection from "~/app/(home)/_list/list-section";
+import {Suspense, useEffect, useState} from "react";
+
+
+export type todoListType = {
+  isCompleted: boolean,
+  name: string,
+  id: number,
+  memo: string,
+  imageUrl: string
+ }
+
 
 const Home = () => {
     // ide 에서 className='' 규칙을 사용하여 자동 완성 기능을 사용하기 위한..
-  const [doList, setDoList] = useState<string[]>(['test', 'test1' , 'test3'])
-  const [doneList, setDoneList] = useState<string[]>(['test', 'test1' , 'test3'])
+  const [allList, setAllList] = useState<todoListType[]>([])
+  const [isLoading, setIsLoading] = useState(true)
+  const getItems = async () => {
+    const response = await fetch(`http://localhost:3000/url/${process.env.NEXT_PUBLIC_TENANT_ID}/items`)
+    return response.json()
+  }
+  useEffect(() => {
+    getItems().then(res => {
+      setAllList(res)
+      setIsLoading(false)
+    }).catch(e => {
+      console.log(e)
+    })
+  }, []);
 
-  const addOdItem = (text: string) => {
-    setDoList([...doList, text])
+
+
+
+
+
+  const addOdItem = (item: todoListType) => {
+    setAllList([...allList, {...item}])
   }
 
   return (
-      <div>
-        <div className='w-screen flex justify-center'>
-          <div className='min-w-[1014px] pt-6'>
+          <>
             <SearchSection addOdItem={addOdItem} />
-            <ListSection doList={doList} setDoList={setDoList} doneList={doneList} setDoneList={setDoneList} />
-          </div>
-        </div>
-      </div>
+            <ListSection allList={allList} setAllList={setAllList} isLoading={isLoading} />
+          </>
   )
 }
 export default Home

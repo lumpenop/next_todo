@@ -6,6 +6,7 @@ import color from 'tailwindcss/colors'
 
 interface Props {
   bgColor: string
+  children?: React.ReactNode
 }
 
 

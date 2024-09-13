@@ -20,7 +20,11 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${NanumSquare.className}`}>
         <Gnb />
-        {children}
+        <div className='w-screen flex justify-center'>
+          <div className='min-w-[1014px] pt-6'>
+            {children}
+          </div>
+        </div>
       </body>
     </html>
   );
