@@ -1,9 +1,8 @@
 'use client'
 import React, {useState} from 'react';
-import Button from "~/app/components/button";
-import {state} from "sucrase/dist/types/parser/traverser/base";
 import RoundedShadow from "~/app/components/rounded-shadow";
 import Image from "next/image";
+import Button from "~/app/components/button";
 
 
 interface Props {
@@ -36,16 +35,14 @@ const AddButton = ({isButtonEnabled, addButtonClick}: Props) => {
   const {textColor, bgColor, imageColor} = settingColor(isButtonEnabled)
 
   return (
-    <button onClick={addButtonClick} className='rounded-[24px]' disabled={!isButtonEnabled}>
-      <RoundedShadow bgColor={bgColor}>
-        <div className={`flex items-center justify-around w-[90px] ${textColor}`}>
+    <>
+      <Button onClick={addButtonClick} bgColor={bgColor} textColor={textColor}>
           <Image src='/images/plus.svg' width={16} height={16} className={imageColor} alt={'plus images'}/>
           {text}
-        </div>
-      </RoundedShadow>
-    </button>
-)
-  ;
+      </Button>
+    </>
+  )
+    ;
 };
 
 export default AddButton;

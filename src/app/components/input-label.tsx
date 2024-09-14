@@ -14,7 +14,7 @@ const InputLabel = ({handleChange, imgSrc}:Props) => {
   return (
     <>
       <label htmlFor="input-file"
-             className={`rounded-[30px] w-[50px] h-[50px] ${imgSrc ? imgCss : notImgCss} flex items-center justify-center absolute right-3 bottom-3`}>
+             className={`rounded-[30px] w-[50px] h-[50px] ${imgSrc ? imgCss : notImgCss} flex items-center justify-center absolute right-3 bottom-3 cursor-pointer`}>
         {imgSrc ? <Image src={'/images/edit.svg'} width={25} height={25} priority={false} alt='plus' /> : <Image src={'/images/plus.svg'} width={25} height={25} priority={false} alt='plus'/>}
       </label>
       <input className='hidden' type="file" accept="image/*" onChange={handleChange} id='input-file' />
