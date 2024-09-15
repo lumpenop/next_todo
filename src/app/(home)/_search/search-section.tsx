@@ -25,7 +25,7 @@ const SearchSection = ({addOdItem}: Props) => {
   let searchBgColor = className = 'bg-slate-100'
 
   const postTodo = async () => {
-    const response = await fetch(`http://localhost:3000/url/${process.env.NEXT_PUBLIC_TENANT_ID}/items`,
+    const response = await fetch(`/url/${process.env.NEXT_PUBLIC_TENANT_ID}/items`,
       {
         headers: {
           "Content-Type": "application/json",

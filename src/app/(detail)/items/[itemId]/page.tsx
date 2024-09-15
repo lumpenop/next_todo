@@ -18,12 +18,12 @@ const Items = ({params: {itemId}}: {params: {itemId: string}}) => {
   const router = useRouter()
 
   const getItem = async () => {
-    const response = await fetch(`http://localhost:3000/url/${process.env.NEXT_PUBLIC_TENANT_ID}/items/${itemId}`)
+    const response = await fetch(`/url/${process.env.NEXT_PUBLIC_TENANT_ID}/items/${itemId}`)
     return response.json()
   }
 
   const uploadImage = async (formData: FormData): Promise<{url: string}> => {
-    const response = await fetch(`http://localhost:3000/url/${process.env.NEXT_PUBLIC_TENANT_ID}/images/upload`, {
+    const response = await fetch(`/url/${process.env.NEXT_PUBLIC_TENANT_ID}/images/upload`, {
       method: 'POST',
       body: formData
     })
@@ -95,7 +95,7 @@ const Items = ({params: {itemId}}: {params: {itemId: string}}) => {
 
   // 아이템을 수정합니다
   const modifyItem = async () => {
-    const response = await fetch(`http://localhost:3000/url/${process.env.NEXT_PUBLIC_TENANT_ID}/items/${itemId}`, {
+    const response = await fetch(`/url/${process.env.NEXT_PUBLIC_TENANT_ID}/items/${itemId}`, {
       headers: {
         "Content-Type": "application/json",
       },
@@ -107,7 +107,7 @@ const Items = ({params: {itemId}}: {params: {itemId: string}}) => {
 
   // 아이템을 삭제합니다
   const deleteItem = async () => {
-    const response = await fetch(`http://localhost:3000/url/${process.env.NEXT_PUBLIC_TENANT_ID}/items/${itemId}`, {method: 'DELETE'})
+    const response = await fetch(`/url/${process.env.NEXT_PUBLIC_TENANT_ID}/items/${itemId}`, {method: 'DELETE'})
     if (response.status === 200) {
       router.push('/')
       response.json().then(res => console.log(res))
