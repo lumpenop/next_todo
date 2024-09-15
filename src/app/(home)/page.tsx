@@ -19,7 +19,7 @@ const Home = () => {
   const [allList, setAllList] = useState<todoListType[]>([])
   const [isLoading, setIsLoading] = useState(true)
   const getItems = async () => {
-    const response = await fetch(`url/${process.env.NEXT_PUBLIC_TENANT_ID}/items`)
+    const response = await fetch(`/url/${process.env.NEXT_PUBLIC_TENANT_ID}/items`)
     return response.json()
   }
   useEffect(() => {
