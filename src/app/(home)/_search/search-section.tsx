@@ -45,7 +45,7 @@ const SearchSection = ({addOdItem}: Props) => {
 
 
   return (
-    <section className='flex items-center justify-between'>
+    <section className='w-full flex items-center justify-between  gap-4'>
       <Search bgColor={searchBgColor} onChange={onChange} text={text}/>
       <AddButton isButtonEnabled={isButtonEnabled} addButtonClick={() => {addButtonClick().then(res => console.log(res))}}/>
     </section>

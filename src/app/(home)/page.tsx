@@ -40,10 +40,10 @@ const Home = () => {
   }
 
   return (
-          <>
+          <div className='w-full flex flex-col justify-center items-center'>
             <SearchSection addOdItem={addOdItem} />
             <ListSection allList={allList} setAllList={setAllList} isLoading={isLoading} />
-          </>
+          </div>
   )
 }
 export default Home

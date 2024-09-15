@@ -18,9 +18,7 @@ const ListSection = ({allList, setAllList, isLoading}:Props) => {
     setTodoList(todos)
     setDoneList(dones)
   }, [allList]);
-  let className
-  let todoColor = className = 'bg-lime-300 text-green-700'
-  let doneColor = className = 'bg-green-700 text-amber-300'
+
 
   useEffect(() => {
 
@@ -28,7 +26,6 @@ const ListSection = ({allList, setAllList, isLoading}:Props) => {
 
   return (
     <section className='grid gap-y-4 mt-10'>
-      <StateSection todoColor={todoColor} doneColor={doneColor} />
       <TodoList doList={todoList} doneList={doneList} setDoList={setTodoList} setDoneList={setDoneList} isLoading={isLoading} />
     </section>
   );

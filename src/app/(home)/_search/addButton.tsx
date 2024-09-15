@@ -36,9 +36,11 @@ const AddButton = ({isButtonEnabled, addButtonClick}: Props) => {
 
   return (
     <>
-      <Button onClick={addButtonClick} bgColor={bgColor} textColor={textColor}>
-          <Image src='/images/plus.svg' width={16} height={16} className={imageColor} alt={'plus images'}/>
-          {text}
+      <Button onClick={addButtonClick} bgColor={bgColor} textColor={textColor} isAdd={true} >
+          <div className='mobile:p-1'>
+            <Image src='/images/plus.svg' width={16} height={16} className={`${imageColor}`} alt={'plus images'}/>
+          </div>
+          <span className='mobile:hidden'>{text}</span>
       </Button>
     </>
   )

@@ -133,22 +133,25 @@ const Items = ({params: {itemId}}: {params: {itemId: string}}) => {
     <div className={'w-full flex flex-col justify-center'}>
       <div className='w-[100%] flex flex-col'>
         <ListItem text={name} itemId={id} isComplete={isCompleted}/>
-        <div className='flex w-full justify-between gap-1 pt-6'>
+        <div className='flex tablet:flex-col mobile:flex-col w-full justify-between gap-4 pt-6'>
           <div
-            className={`w-[430px] h-[350px] border-dashed border-slate-300 ${!imageSrc && 'border-2'} rounded-2xl bg-slate-100 flex items-center justify-center relative overflow-hidden`}>
+            className={`w-[430px] tablet:w-full mobile:w-full h-[350px] border-dashed border-slate-300 ${!imageSrc && 'border-2'} rounded-2xl bg-slate-100 flex items-center justify-center relative overflow-hidden`}>
             {imageSrc ? <Image src={imageSrc} width={400} height={300} alt='img'/> : <Image src={'/images/img.svg'} width={70} height={70} alt='img'/>}
             <InputLabel handleChange={handleChange} imgSrc={imageSrc} />
           </div>
           <div className='relative flex justify-center'>
-            <Image src={'/images/memo.svg'} width={570} height={460} priority alt={'memo'} className={'relative top-0'} />
+            <div className='w-[500px] h-[350px]'>
+              <Image src={'/images/memo.svg'} layout={"fill"}
+                   objectFit={"cover"} priority alt={'memo'} className={'relative top-0'} />
+            </div>
             <div className='w-full h-[350px] flex flex-col items-center justify-center gap-3 absolute top-0'>
               <h1 className='text-amber-800 font-bold'>Memo</h1>
-              <textarea className='w-[500px] h-[250px] resize-none bg-transparent outline-none border-none ' name="memo" id="memo"  cols={30} rows={10} value={memo ? memo : ''} onChange={(e:  React.ChangeEvent<HTMLTextAreaElement>) => setMemo(e.currentTarget.value)} />
+              <textarea className='w-[90%] h-[250px] resize-none bg-transparent outline-none border-none ' name="memo" id="memo"  cols={30} rows={10} value={memo ? memo : ''} onChange={(e:  React.ChangeEvent<HTMLTextAreaElement>) => setMemo(e.currentTarget.value)} />
             </div>
           </div>
         </div>
       </div>
-      <div className='flex gap-3 justify-end pt-4'>
+      <div className='flex gap-3 justify-end tablet:justify-center mobile:justify-center pt-4'>
         <Button bgColor={modifyBgColor} textColor={modifyTextColor} onClick={modifyItem} >
           <Image src='/images/check.svg' width={16} height={16} alt={'plus images'}/>
           수정완료

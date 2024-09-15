@@ -14,7 +14,7 @@ const ListItem = ({text, onClick, isComplete, itemId}:Props) => {
       <button onClick={onClick} disabled={!onClick}>
         <Image src={`/images/${isComplete ? 'Frame' : 'Default'}.svg`} width={24} height={24} alt={'check box'}/>
       </button>
-      <Link href={`/items/${itemId}`} className={`${onClick && `w-full`} ${!onClick && 'pointer-events-none'} text-left`} aria-disabled={!onClick} >
+      <Link href={`/items/${itemId}`} className={`${onClick && `w-full`}  ${!onClick && 'pointer-events-none'} text-left`} aria-disabled={!onClick} >
         <span className={`${isComplete && onClick ? 'line-through' : ''} ${!onClick && 'underline'}`}>{text}</span>
       </Link>
     </div>

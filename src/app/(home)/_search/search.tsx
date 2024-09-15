@@ -15,7 +15,7 @@ interface Props {
 const Search = ({bgColor, onChange, text}: Props) => {
   return (
     <RoundedShadow bgColor={bgColor}>
-      <input type="text" value={text} onChange={onChange} className={`min-w-[800px]  border-none outline-0 ${bgColor}`} placeholder='할 일을 입력해주세요' />
+      <input type="text" value={text} onChange={onChange} className={`w-full  border-none outline-0 ${bgColor}`} placeholder='할 일을 입력해주세요' />
     </RoundedShadow>
   );
 };

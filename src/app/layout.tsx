@@ -18,10 +18,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${NanumSquare.className}`}>
+      <body className={`${NanumSquare.className} w-full`}>
         <Gnb />
         <div className='w-screen flex justify-center'>
-          <div className='min-w-[1014px] pt-6'>
+          <div className='pc:w-[800x] tablet:w-[600px] mobile:w-[380px] pt-6'>
             {children}
           </div>
         </div>
