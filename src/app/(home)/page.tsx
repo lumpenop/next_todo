@@ -44,7 +44,6 @@ const Home = () => {
           <div className='w-full flex flex-col justify-center items-center'>
             <SearchSection addOdItem={addOdItem} />
             <ListSection allList={allList} setAllList={setAllList} isLoading={isLoading} />
-            <Image src={'https://sprint-fe-project.s3.ap-northeast-2.amazonaws.com/TodoList/lumpen/1726369508877/newjeans.jpeg'} width={100} height={100} alt={'이미지'}/>
           </div>
   )
 }
