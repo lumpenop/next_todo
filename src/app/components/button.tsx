@@ -8,10 +8,11 @@ interface Props {
   onClick: () => void
   isAdd?: boolean
   children: ReactNode
+  isButtonDisabled?: boolean
 }
-const Button = ({bgColor, onClick, textColor, isAdd, children}: Props) => {
+const Button = ({bgColor, onClick, textColor, isAdd, isButtonDisabled, children}: Props) => {
   return (
-    <button onClick={onClick} className='rounded-[24px]'>
+    <button onClick={onClick} className='rounded-[24px]' disabled={isButtonDisabled}>
       <RoundedShadow bgColor={bgColor} isAdd={isAdd}  >
         <div className={`flex items-center justify-around w-[90px] ${isAdd && 'mobile:w-[20px]'} ${bgColor} ${textColor}`}>
           {children}
