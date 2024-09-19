@@ -22,7 +22,7 @@ const TodoList = ({doneList,doList,setDoneList,setDoList, isLoading}: Props) => 
 
   // 아이템을 수정하는 api 호출입니다
   const patchItem = async (item: todoListType) => {
-    const response = await fetch(`http://localhost:3000/url/${process.env.NEXT_PUBLIC_TENANT_ID}/items/${item.id}`, {
+    const response = await fetch(`/url/${process.env.NEXT_PUBLIC_TENANT_ID}/items/${item.id}`, {
       headers: {
         "Content-Type": "application/json",
       },
